@@ -59,7 +59,7 @@ void menu()
 void inicializar()
 {
 
-	// se a lista j� possuir elementos
+	// se a lista já possuir elementos
 	// libera a memoria ocupada
 	NO* aux = topo;
 	while (aux != NULL) {
@@ -73,7 +73,6 @@ void inicializar()
 
 }
 
-
 void push()
 {
 	// aloca memoria dinamicamente para o novo elemento
@@ -83,17 +82,27 @@ void push()
 		return;
 	}
 
-	cout << "Digite o elemento: ";
-	cin >> novo->valor;
-	novo->prox = NULL;
 
+	else {
+		cout << "Digite um novo elemento";
+		cin >> novo->valor;
+		novo->prox = topo;
+		topo = novo;
+	}
 
 }
 
 void pop()
 {
+	if (topo == NULL) {
+		cout << "a pilha está vazia" << endl;
+		return;
+}
+	NO* paraRemover = topo;
+	cout << " O elemento foi removido " << topo->valor << endl;
+	topo = topo->prox;
 
-	
+	free(paraRemover);	
 
 }
 
